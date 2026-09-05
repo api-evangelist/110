@@ -1,0 +1,74 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  https://1-10.github.io/ZIGSIM_docs/, https://zig-project.com/, the git tags and
+  push history of https://github.com/1-10 (GitHub REST API, 2026-09-05), and the
+  Apple App Store metadata for ZIG SIM (id1112909974) and ZIG SIM PRO
+  (id1481556614) read from the iTunes lookup endpoint on 2026-09-05.
+description: >-
+  1→10, Inc. publishes no API and therefore no API versioning policy, deprecation
+  policy, Sunset/Deprecation headers, SLA or status page. What can be tracked is
+  the release cadence of ZIG SIM, the one developer-facing product, plus a
+  documented and still-unretired compatibility break in its own tooling.
+versioning:
+  scheme: application semantic version (App Store / git tag)
+  mechanism: null
+  in_band: false
+  notes: >-
+    The message protocol carries no version field and offers no negotiation, so a
+    receiver cannot discover which command vocabulary the sending device speaks.
+    Version is a property of the installed app, not of the interface.
+  docs: https://1-10.github.io/ZIGSIM_docs/getting-started.html
+current_versions:
+  - product: ZIG SIM (free, iOS)
+    version: 1.5.1
+    released: '2026-06-19'
+    source: https://apps.apple.com/jp/app/zig-sim/id1112909974
+  - product: ZIG SIM PRO (iOS)
+    version: 1.5.1
+    released: '2026-06-19'
+    source: https://apps.apple.com/jp/app/zig-sim-pro/id1481556614
+  - product: ZIG Indicator (desktop receiver, Windows + macOS)
+    version: 1.1.0
+    released: null
+    source: https://zig-project.com/release/ZIG_indicator_v1.1.0_x64.zip
+    note: >-
+      No release date is published for ZIG Indicator. The download is a direct
+      versioned zip off zig-project.com with no changelog beside it.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: >-
+    No deprecation policy is published anywhere on 1-10.com, zig-project.com or
+    the ZIG SIM documentation. There is, however, an openly documented and
+    unresolved compatibility break: "some features are not supported yet, as ZIG
+    Indicator was developed before ZIG SIM v2.0.0"
+    (https://1-10.github.io/ZIGSIM_docs/tutorial.html), and zig-project.com still
+    carries a 2019 note promising an Android update "2019年秋以降" and a ¥490 Pro
+    price against the ¥600 the App Store charges today. The first-party receiver
+    has been behind the first-party sender for years with no stated remediation.
+known_stale_pointers:
+  - url: https://1-10.github.io/zigsim/
+    status: 404
+    where: >-
+      Linked from zig-project.com as the ZIG SIM documentation, and set as the
+      GitHub `homepage` field of 1-10/ZIGSIMPlus_iOS_Public.
+    live_location: https://1-10.github.io/ZIGSIM_docs/
+    note: >-
+      Probed 2026-09-05: GitHub Pages "Site not found". The provider's own
+      product site and its own repository metadata both point developers at a
+      dead documentation URL. This is the single cheapest fix available to 1→10.
+sla:
+  url: null
+  public_uptime_target: null
+  notes: >-
+    Not applicable — there is no hosted service to commit to. ZIG SIM runs on the
+    user's own device and sends to the user's own machine.
+status_page: null
+status_page_notes: >-
+  None published, and none needed for a peer-to-peer LAN product; recorded so the
+  absence reads as a measured fact rather than an unchecked field. No
+  StatusPage or Deprecation pointer is wired into apis.yml.
+support:
+  contact: https://www.1-10.com/contact/
+  issues: https://github.com/1-10/ZIGSIMPlus_iOS_Public/issues

@@ -1,0 +1,153 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  https://1-10.github.io/ZIGSIM_docs/ — Getting Started, Tutorial and the
+  fourteen per-feature output specifications, which together are the only
+  published interface contract 1→10, Inc. maintains. Cross-checked against the
+  ZIG SIM product page https://zig-project.com/.
+description: >-
+  Cross-cutting runtime semantics of the ZIG SIM message interface. This is not a
+  REST API: ZIG SIM is a smartphone application that publishes device sensor
+  telemetry to a receiver the user runs on their own machine, over the local
+  network. The conventions below are therefore about transport, addressing and
+  message shape rather than HTTP. Where a dimension does not apply to a
+  publish-only telemetry stream it is recorded as `na` with the reason, not as a
+  gap.
+api_style: >-
+  One-way message publication over the local network. Transport is UDP or TCP,
+  selected in the app's Settings tab; message format is OSC or JSON, also
+  selected in Settings. The device is the sender and the developer's application
+  is the receiver, so there is no request/response cycle and no server the
+  developer calls.
+base_url: null
+base_url_note: >-
+  There is deliberately no base URL. The destination is the IP address and port
+  of the receiving machine, typed into the app by the user
+  (https://1-10.github.io/ZIGSIM_docs/tutorial.html). Recording a host here would
+  be a fabrication.
+
+transport:
+  protocols: [UDP, TCP]
+  default_usecase: OSC over UDP
+  docs: https://1-10.github.io/ZIGSIM_docs/getting-started.html
+  network_scope: Local network only — the app sends to a PC on the same LAN.
+  out_of_band:
+    - name: NDI
+      note: >-
+        The NDI command does not use the TCP/UDP message channel at all — "NDI
+        does not output any data over TCP/UDP. Video and audio are transmitted
+        over NDI protocol". ZIG SIM Pro only.
+      docs: https://1-10.github.io/ZIGSIM_docs/features/ndi.html
+
+message_formats:
+  - format: OSC
+    addressing: >-
+      Each enabled command publishes to an OSC address namespaced by the sending
+      device: /(deviceUUID)/<command>. Multi-valued commands pack values
+      positionally (accel sends x, y, z in order; remotecontrol packs five values
+      in one message), and indexed commands fold the index into the address
+      (/(deviceUUID)/touchradius(TOUCH_ID),
+      /(deviceUUID)/nfcdata(MESSAGE_ID)-(RECORD_ID),
+      /(deviceUUID)/beacon(BEACON_ID)).
+  - format: JSON
+    addressing: >-
+      The same data addressed as dotted JSON key paths: accel.x, gravity.y,
+      gyro.z, quaternion.w, gps.latitude, touches[TOUCH_ID].force,
+      arkit.position, arkit.featurePoints, faceTracking.rotation,
+      beacon[BEACON_ID].rssi, nfc[MESSAGE_ID][RECORD_ID].typenameformat,
+      remotecontrol.volume.
+message_formats_docs: https://1-10.github.io/ZIGSIM_docs/
+
+device_identity:
+  mechanism: deviceUUID
+  description: >-
+    Every OSC address is prefixed with the sending device's UUID, which is how a
+    receiver disambiguates several phones publishing into one port. This is the
+    only identity in the protocol.
+
+authentication:
+  scheme: none
+  description: >-
+    The message channel carries no credential of any kind. Anything on the local
+    network that can reach the chosen port can receive the stream, and anything
+    can spoof it. The trust boundary is the LAN.
+  docs: https://1-10.github.io/ZIGSIM_docs/getting-started.html
+
+rate_signaling:
+  mechanism: message rate (general settings)
+  description: >-
+    Publication frequency is set by the sender in the app's general settings, not
+    negotiated with the receiver; the NDI framerate "follows the message rate in
+    general settings". There is no backpressure signal and no throttle response —
+    a receiver that cannot keep up simply drops datagrams (UDP).
+  detail: rate-limits/110-rate-limits.yml
+
+error_envelope:
+  supported: false
+  description: >-
+    No error envelope exists. A misconfigured IP address or port produces no
+    signal to the developer at all — the stream simply does not arrive. The
+    documented diagnostic is visual: run ZIG Indicator or the TouchDesigner
+    sample and watch whether values move.
+  docs: https://1-10.github.io/ZIGSIM_docs/tutorial.html
+
+pagination:
+  supported: na
+  reason: A continuous message stream has no collections to page.
+
+idempotency:
+  supported: false
+  coverage: none
+  mechanism: null
+  scope: []
+  description: >-
+    ZIG SIM has no write surface — it publishes device telemetry and accepts
+    nothing back — so there is no mutating operation for a replay to duplicate.
+    Recorded as coverage:none because the machine field admits no `na`; the
+    honest reading is "not applicable", and the reason is stated here rather than
+    left to be inferred.
+  docs: https://1-10.github.io/ZIGSIM_docs/
+
+reversibility:
+  applicable: false
+  grade: na
+  description: >-
+    The interface is read-only from the consumer's side: an agent or application
+    integrating ZIG SIM receives sensor values and cannot cause the device to do
+    anything. There is no create, update, delete, charge, send or publish
+    operation, therefore nothing to cancel, refund, void or restore. No
+    reversal window is asserted because none exists to state.
+  write_surfaces: []
+  dry_run_mode: na
+
+versioning:
+  scheme: application version, not interface version
+  description: >-
+    There is no version negotiation in the protocol and no version field in the
+    message. The contract moves when the app does: ZIG SIM Pro 1.5.1 (App Store,
+    2026-06-19) added features the older ZIG Indicator receiver cannot read, and
+    the docs say so plainly — "some features are not supported yet, as ZIG
+    Indicator was developed before ZIG SIM v2.0.0". A receiver has no way to ask
+    the sender which vocabulary it speaks.
+  detail: lifecycle/110-lifecycle.yml
+
+editions:
+  - name: ZIG SIM
+    commands: >-
+      Touch, Apple Pencil, Battery, Motion (Acceleration/Gravity/Gyro/Quaternion),
+      Compass, GPS, Pressure, Proximity, Mic Level, Remote Control, Beacon
+  - name: ZIG SIM Pro
+    commands: >-
+      All of the above plus ARKit (DEVICE / FACE / MARKER / BODY modes), NDI and
+      Image Detection
+    constraint: >-
+      "you cannot use NDI, ARKit and Image Detection simultaneously" — a
+      documented mutual exclusion a receiver must design around.
+    docs: https://1-10.github.io/ZIGSIM_docs/features/arkit.html
+
+cross_references:
+  conformance: conformance/110-conformance.yml
+  lifecycle: lifecycle/110-lifecycle.yml
+  plans: plans/110-plans-pricing.yml
+  rate_limits: rate-limits/110-rate-limits.yml
+  packages: packages/110-packages.yml

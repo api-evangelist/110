@@ -1,0 +1,66 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  Apple App Store metadata for ZIG SIM (id1112909974) and ZIG SIM PRO
+  (id1481556614), read from https://itunes.apple.com/search on 2026-09-05, and
+  the ZIG SIM product page https://zig-project.com/. 1→10's corporate site
+  https://www.1-10.com/ publishes no pricing page — its business pages
+  (/business/solutions/, /business/lbe/, /business/urbandev/,
+  /business/prototype/, /business/businesspackage/) route to a contact form.
+description: >-
+  Two different pricing realities sit in this record. The consulting and
+  installation business — spatial DX, location-based entertainment, urban
+  development, prototype development — is quoted per engagement and publishes no
+  rates at all. The one productised, self-serve thing 1→10 sells is the ZIG SIM
+  app, and that is priced publicly on the App Store: a free tier and a one-time
+  ¥600 Pro purchase. There is no subscription, no quota, no overage and no API
+  metering anywhere in the company's surface.
+plan_count: 2
+currency: JPY
+billing_model: one-time app purchase (no subscription, no usage metering)
+plans:
+  - id: zig-sim-free
+    name: ZIG SIM
+    price: 0
+    currency: JPY
+    period: one-time
+    url: https://apps.apple.com/jp/app/zig-sim/id1112909974
+    platforms: [iOS, Android]
+    included: >-
+      Touch, Apple Pencil, Battery, Acceleration, Gravity, Gyro, Quaternion,
+      Compass, GPS, Pressure, Proximity, Mic Level, Remote Control and Beacon
+      commands, over OSC or JSON on UDP or TCP.
+    quota: null
+    overage: null
+    limits: >-
+      No request, message or device limits are published; the constraint is the
+      local network, not a plan.
+  - id: zig-sim-pro
+    name: ZIG SIM PRO
+    price: 600
+    currency: JPY
+    period: one-time
+    url: https://apps.apple.com/jp/app/zig-sim-pro/id1481556614
+    platforms: [iOS]
+    included: >-
+      Everything in the free tier plus ARKit (DEVICE / FACE / MARKER / BODY),
+      NDI video and audio transmission, and Image Detection.
+    quota: null
+    overage: null
+    limits: >-
+      NDI, ARKit and Image Detection cannot be used simultaneously
+      (https://1-10.github.io/ZIGSIM_docs/features/arkit.html). iOS only — the
+      documentation states "ZIG SIM Pro is currently only available for iOS".
+    price_note: >-
+      zig-project.com still advertises the Pro version at ¥490, the 2019 launch
+      price; the App Store charges ¥600 as of 2026-09-05. The provider's own
+      product page is stale.
+services_pricing:
+  published: false
+  note: >-
+    No rate card, day rate or package price is published for the consulting and
+    production business. /business/businesspackage/ describes packaged offerings
+    but states no price; every business page ends at
+    https://www.1-10.com/contact/. Recorded as an honest absence — this is a
+    project-based creative studio, and contact-us pricing is the norm for the
+    category, not an omission.

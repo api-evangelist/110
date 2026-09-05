@@ -1,0 +1,49 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  https://github.com/1-10/public-skills — the first-party Agent Skills repository
+  published by 1→10, Inc. (GitHub organisation `1-10`, whose profile blog field is
+  https://1-10.com). Topic `agent-skills`, default branch `main`, last pushed
+  2026-04-20. The SKILL.md, README files, asset templates and helper script below
+  were fetched verbatim from raw.githubusercontent.com and are NOT authored by
+  API Evangelist.
+description: >-
+  Agent Skills that 1→10, Inc. publishes for public use. 1→10 is a Kyoto creative
+  technology studio, not an API platform, so this is the company's only
+  agent-facing machine-readable surface — a packaged Claude-format Agent Skill
+  (frontmatter `name` + `description`, procedural markdown body, bundled
+  `assets/` and `scripts/`) rather than an SDK or an HTTP contract.
+license: MIT (declared in the SKILL.md frontmatter)
+skills:
+  - name: codebase-guide
+    file: skills/codebase-guide/SKILL.md
+    upstream: https://github.com/1-10/public-skills/tree/main/skills/codebase-guide
+    author: iizuka@1-10.com
+    license: MIT
+    language: Japanese (SKILL.md and README-ja.md); English README.md provided
+    description: >-
+      指定ディレクトリの構造・設計意図・処理フローを分析し、理解支援用Markdownレポートを生成する
+      — analyses a given directory's structure, dependency graph, representative
+      execution flows and design intent, and emits a Markdown comprehension report
+      (`review-codebase-{directory}.md`) aimed at review catch-up and onboarding,
+      explicitly not at quality auditing.
+    api: null
+    operations: []
+    note: >-
+      Grounded in a local repository and the `git` CLI, not in an HTTP API — the
+      skill has no `api:` binding and no operationIds because 1→10 publishes no
+      OpenAPI. Recorded as-is rather than forced into the operation-bound shape.
+    bundled:
+      - skills/codebase-guide/README.md
+      - skills/codebase-guide/README-ja.md
+      - skills/codebase-guide/assets/template.md
+      - skills/codebase-guide/assets/repo-context.md
+      - skills/codebase-guide/scripts/init-repo-info.js
+x-evidence:
+  fetched: '2026-09-05'
+  url: https://raw.githubusercontent.com/1-10/public-skills/main/skills/codebase-guide/SKILL.md
+  http_status: 200
+  org_owner_check: >-
+    https://api.github.com/users/1-10 returns name "株式会社ワントゥーテン",
+    type Organization, blog https://1-10.com, location Japan — the organisation is
+    the company itself, and the skill author's address is @1-10.com.

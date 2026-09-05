@@ -1,0 +1,110 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  The ZIG SIM documentation published by 1→10, Inc. at
+  https://1-10.github.io/ZIGSIM_docs/ (Getting Started, Tutorial and the
+  per-feature output specifications), the ZIG SIM product page
+  https://zig-project.com/, the 1→10 information-security policy
+  https://www.1-10.com/securitypolicy/, and the company's Agent Skills repository
+  https://github.com/1-10/public-skills. Every entry below cites the page that
+  states it; nothing here is inferred from a marketing claim.
+description: >-
+  1→10 ships no HTTP API, so the usual web-API conformance axes (OAuth 2.0, OIDC,
+  RFC 9457, JSON:API, idempotency, pagination) are all genuinely absent and are
+  recorded as conforms:false with the probe that established it. What the company
+  DOES conform to are the interchange standards of its own market — interactive
+  installation and media production — which its product documentation names
+  explicitly: Open Sound Control for sensor messaging, NDI for video/audio
+  transport, NDEF for NFC payloads and iBeacon for proximity. That is the
+  domain-standard signature for this sector.
+standards:
+  - id: osc
+    name: Open Sound Control (OSC 1.0)
+    domain_standard: true
+    conforms: true
+    evidence: >-
+      ZIG SIM emits every sensor command as an OSC message with a documented
+      address pattern of the form /(deviceUUID)/<command> — e.g. /(deviceUUID)/accel,
+      /(deviceUUID)/quaternion, /(deviceUUID)/touch(TOUCH_ID)1,
+      /(deviceUUID)/arkitposition. "You can choose the data format from OSC or
+      JSON. The most common usecase is using OSC over UDP."
+      https://1-10.github.io/ZIGSIM_docs/getting-started.html and every page under
+      https://1-10.github.io/ZIGSIM_docs/features/
+  - id: ndi
+    name: NDI (Network Device Interface)
+    domain_standard: true
+    conforms: true
+    evidence: >-
+      "NDI command transmits video and audio captured by the device over NDI
+      protocol... you can receive the data with NDI client apps like NewTek NDI
+      Video Monitor, TouchDesigner, etc." ZIG SIM Pro only.
+      https://1-10.github.io/ZIGSIM_docs/features/ndi.html
+  - id: ndef
+    name: NFC Data Exchange Format (NDEF)
+    domain_standard: true
+    conforms: true
+    evidence: >-
+      "NFC Reader command detects NFC tags and read messages that contain NDEF
+      data. Output values are defined by the NDEF specification." The emitted
+      fields — id, data, typenameformat, type — are the NDEF record fields.
+      https://1-10.github.io/ZIGSIM_docs/features/nfc-reader.html
+  - id: ibeacon
+    name: iBeacon (Apple proximity beacon profile over Bluetooth LE)
+    domain_standard: true
+    conforms: true
+    evidence: >-
+      "Beacon command detects iBeacons around the device", emitting the iBeacon
+      tuple uuid / major / minor / rssi with the canonical
+      XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX UUID format.
+      https://1-10.github.io/ZIGSIM_docs/features/beacon.html
+  - id: json
+    name: JSON (RFC 8259) message format
+    conforms: true
+    evidence: >-
+      JSON is one of the two selectable message formats; each feature page
+      documents its JSON key path (accel.x, gps.latitude, touches[i].force,
+      arkit.position, nfc[m][r].type). "Set Message Format to JSON."
+      https://1-10.github.io/ZIGSIM_docs/tutorial.html
+  - id: agent-skills
+    name: Agent Skills (SKILL.md packaging convention)
+    conforms: true
+    evidence: >-
+      https://github.com/1-10/public-skills carries the topic `agent-skills` and
+      publishes skills/codebase-guide/SKILL.md with the conventional YAML
+      frontmatter (name, description, license, metadata.author) plus bundled
+      assets/ and scripts/ directories. Saved verbatim to skills/ in this repo.
+  - id: oauth2
+    conforms: false
+    evidence: >-
+      No OAuth 2.0 anywhere. /.well-known/oauth-authorization-server returned 404
+      on all five company hosts on 2026-09-05 (see well-known/110-well-known.yml),
+      and ZIG SIM's transport is unauthenticated UDP/TCP on the local network.
+  - id: oidc
+    conforms: false
+    evidence: >-
+      /.well-known/openid-configuration returned 404 on www.1-10.com, 1-10.com,
+      labs.1-10.com, zig-project.com and 1-10.github.io on 2026-09-05.
+  - id: rfc9457
+    conforms: false
+    evidence: >-
+      No HTTP API and no published error catalogue; there is no problem+json
+      surface to conform to. ZIG SIM signals nothing on failure — see
+      conventions/110-conventions.yml.
+  - id: idempotency
+    conforms: false
+    evidence: >-
+      Not applicable rather than missing: ZIG SIM is a one-way telemetry
+      publisher with no write surface. Recorded as na in
+      conventions/110-conventions.yml.
+  - id: pagination
+    conforms: false
+    evidence: No collection endpoints exist; the surface is a message stream, not a resource API.
+compliance:
+  certifications: []
+  note: >-
+    1→10 publishes an information-security policy (情報セキュリティ方針, established
+    2023-06-01, signed by CEO 澤邊芳明) at https://www.1-10.com/securitypolicy/ that
+    commits to establishing an ISMS, periodic risk assessment, audit and incident
+    response. It names NO certification — no ISO/IEC 27001, ISMS registration
+    number, SOC 2, PCI or Privacy Mark claim appears on the page — so no
+    Compliance pointer is wired into apis.yml. A policy is not a certification.

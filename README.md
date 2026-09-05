@@ -1,4 +1,4 @@
-# 110
+# 1→10, Inc. (株式会社ワントゥーテン)
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,5 +64,34 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-110 is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://equityzen.com/company/110
+## About the company
+
+1→10, Inc. is a Kyoto-headquartered creative technology studio — projection mapping and
+large-scale interactive land art, XR installations, AI concierge and robotics work, IoT product
+prototyping and brand content — founded October 1997, with a Tokyo office and a Singapore holding
+company. It describes itself as a "Spatial DX" company.
+
+- Website: https://www.1-10.com/ (English: https://www.1-10.com/en/)
+- Engineering blog: https://labs.1-10.com/
+- GitHub organisation: https://github.com/1-10
+
+**This company publishes no HTTP API.** No OpenAPI, Swagger, GraphQL schema, AsyncAPI, gRPC or
+WSDL contract exists on any host it controls, there is no developer portal, and every
+`/.well-known/` path returned 404 on all five of its hosts (see `well-known/110-well-known.yml`).
+That is a finding, not a gap in this profile: it is a project-based creative studio, and its work
+is commissioned through https://www.1-10.com/contact/.
+
+What it does publish, and what this profile captures:
+
+- **ZIG SIM / ZIG SIM Pro** — a smartphone sensor-streaming app for physical prototyping, with a
+  fully documented message interface (OSC or JSON over UDP or TCP, addressed per device as
+  `/(deviceUUID)/<command>`). Docs: https://1-10.github.io/ZIGSIM_docs/ · Product:
+  https://zig-project.com/ · Source: https://github.com/1-10/ZIGSIMPlus_iOS_Public
+- **A published Agent Skill** — `codebase-guide`, MIT, from https://github.com/1-10/public-skills,
+  saved verbatim under `skills/`. This is the company's only agent-facing artifact.
+
+The repository was originally created from the API Evangelist harvest backlog (source:
+secondary-market), where the company appeared under the mangled name `110`, taken from the
+EquityZen listing https://equityzen.com/company/110 — the venue page for "1 → 10" stock. The
+identity, website and artifacts here were established from the company's own surface on
+2026-09-05.

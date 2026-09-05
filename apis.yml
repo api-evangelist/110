@@ -1,16 +1,37 @@
 aid: '110'
-name: '110'
-description: '110 is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+name: 1→10, Inc.
+description: >-
+  1→10, Inc. (株式会社ワントゥーテン, "One to Ten") is a Kyoto-headquartered creative
+  technology company that designs and builds spatial experiences — projection
+  mapping and large-scale interactive land art, XR installations, AI concierge and
+  robotics work, IoT product prototyping and brand content — for commercial
+  facilities, cultural sites and events. Founded October 1997, with offices in
+  Kyoto and Tokyo and a Singapore holding company, it positions itself as a
+  "Spatial DX" studio and is known for permanent installations such as Magical
+  Shores at Siloso Beach in Singapore and the Nijo Castle YAKAI night event in
+  Kyoto. It is a project-based studio rather than an API platform: its one
+  developer-facing product is ZIG SIM, a smartphone sensor-streaming app used for
+  physical prototyping, and it publishes an Agent Skill for public use.
 url: https://raw.githubusercontent.com/api-evangelist/110/refs/heads/main/apis.yml
+image: https://www.1-10.com/assets/img/common/ogp.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pass-2026-09-05
+position: Producing
 specificationVersion: '0.20'
 created: '2026-09-05'
 modified: '2026-09-05'
 tags:
+- Creative Technology
+- Experience Design
+- XR
+- Artificial Intelligence
+- Projection Mapping
+- Sensors
+- Prototyping
+- Japan
+- Entertainment
 - Company
 apis: []
 maintainers:
@@ -19,5 +40,80 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/110-domain-security.yml
 - type: Website
-  url: https://equityzen.com/company/110
+  url: https://www.1-10.com/
+- type: Documentation
+  url: https://1-10.github.io/ZIGSIM_docs/
+- type: GettingStarted
+  url: https://1-10.github.io/ZIGSIM_docs/getting-started.html
+- type: Tutorials
+  url: https://1-10.github.io/ZIGSIM_docs/tutorial.html
+- type: GitHubOrganization
+  url: https://github.com/1-10
+- type: SourceCode
+  url: https://github.com/1-10/ZIGSIMPlus_iOS_Public
+- type: Blog
+  url: https://labs.1-10.com/
+- type: Contact
+  url: https://www.1-10.com/contact/
+- type: PrivacyPolicy
+  url: https://www.1-10.com/privacypolicy/
+- type: SecurityPolicy
+  url: https://www.1-10.com/securitypolicy/
+- type: TermsOfService
+  url: https://1-10.github.io/ZIGSIM_docs/legal/terms-of-use.html
+- type: Careers
+  url: https://www.1-10.com/recruit/
+- type: Newsroom
+  url: https://www.1-10.com/news/
+- type: CaseStudies
+  url: https://www.1-10.com/works/
+- type: YouTube
+  url: https://www.youtube.com/channel/UCxvAjheFwuVH_EPm_adBR3w
+- type: X
+  url: https://x.com/onetoten_inc
+- type: Instagram
+  url: https://www.instagram.com/onetoten_inc/
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Packages
+  url: packages/110-packages.yml
+- type: Conformance
+  url: conformance/110-conformance.yml
+- type: Conventions
+  url: conventions/110-conventions.yml
+- type: Lifecycle
+  url: lifecycle/110-lifecycle.yml
+- type: Plans
+  url: plans/110-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/110-rate-limits.yml
+- type: LLMsTxt
+  url: llms/110-llms.txt
+x-enrichment:
+  date: '2026-09-05'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v3
+x-coverage:
+  state: covered
+  detail: >-
+    Profiled from the company's own surface. 1→10 publishes no HTTP API — the
+    docs pass established there is no API host to record, so apis[] is
+    deliberately empty rather than carrying a guessed base URL — but it does
+    publish a documented ZIG SIM message interface, a first-party Agent Skill,
+    open-source app repositories and public App Store pricing, all captured here.
+  evidence:
+    - url: https://www.1-10.com/
+      status: 200
+    - url: https://1-10.github.io/ZIGSIM_docs/
+      status: 200
+    - url: https://raw.githubusercontent.com/1-10/public-skills/main/skills/codebase-guide/SKILL.md
+      status: 200
+    - url: https://www.1-10.com/openapi.json
+      status: 404
+    - url: https://www.1-10.com/.well-known/api-catalog
+      status: 404
+  checked: '2026-09-05'

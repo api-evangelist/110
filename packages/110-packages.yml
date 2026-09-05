@@ -1,0 +1,112 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  npm registry (registry.npmjs.org), PyPI, the GitHub organisation
+  https://github.com/1-10 (16 public repositories, enumerated via the GitHub REST
+  API on 2026-09-05) and the ZIG SIM documentation at
+  https://1-10.github.io/ZIGSIM_docs/. Versions and dates are read from registry
+  metadata / git tag commit dates, not from prose.
+description: >-
+  1→10, Inc. publishes NO first-party client library on any package registry —
+  npm, PyPI, Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist and crates.io
+  were all searched and none carries a package published by the company. What the
+  company does distribute is source: the ZIG SIM iOS applications and a set of
+  receiver samples, on GitHub, plus the apps themselves through the Apple App
+  Store. The only npm packages that speak the ZIG SIM protocol are third-party
+  community work and are recorded here as such (official: false) so they are not
+  miscounted as vendor SDKs.
+first_party_registry_packages: 0
+packages:
+  - language: swift
+    registry: github
+    name: 1-10/ZIGSIMPlus_iOS_Public
+    url: https://github.com/1-10/ZIGSIMPlus_iOS_Public
+    source: https://github.com/1-10/ZIGSIMPlus_iOS_Public
+    official: true
+    version: v1.5.1
+    published: '2026-06-22'
+    note: >-
+      Source distribution of ZIG SIM Pro (iOS). No GitHub Releases are cut; the
+      version above is the most recent git tag by commit date and matches the
+      App Store version 1.5.1 (released 2026-06-19). The repository also carries a
+      tag `v2.0.0`, but its commit is dated 2019-07-16 — the tag sequence is not
+      monotonic, so a consumer sorting tags lexically would pick a seven-year-old
+      commit as "latest". No LICENSE file is declared on this repository.
+  - language: swift
+    registry: github
+    name: 1-10/ZIGSIM_iOS_Public
+    url: https://github.com/1-10/ZIGSIM_iOS_Public
+    source: https://github.com/1-10/ZIGSIM_iOS_Public
+    official: true
+    license: MIT
+    version: null
+    published: null
+    note: >-
+      Source of the free ZIG SIM iOS app. Checked 2026-09-05: the repository has
+      no tags and no releases, so there is no published version to record — an
+      honest gap, not a guess. Last push 2026-05-17.
+  - language: javascript
+    registry: github
+    name: 1-10/zigsim-receivers
+    url: https://github.com/1-10/zigsim-receivers
+    source: https://github.com/1-10/zigsim-receivers
+    official: true
+    license: MIT
+    version: null
+    published: null
+    note: >-
+      First-party sample receiver applications (browser/three.js ARKit body
+      tracking, quiz demo, TouchDesigner NDI patch) showing how to consume the ZIG
+      SIM OSC/JSON stream. Not a library and not on any registry; no tags. Last
+      push 2021-09-15 — four years stale against a product still shipping in 2026.
+  - language: javascript
+    registry: npm
+    name: zigsim-ws
+    url: https://www.npmjs.com/package/zigsim-ws
+    source: https://github.com/acrylicode/zigsim-ws
+    install: npm install zigsim-ws
+    official: false
+    version: 1.0.0
+    published: '2021-06-26'
+    note: >-
+      Community package (npm maintainer `acrylicode`, not 1→10) that bridges the
+      ZIG SIM app to an application over WebSocket. Recorded for completeness;
+      it is not a vendor SDK.
+  - language: javascript
+    registry: npm
+    name: node-red-contrib-zigsim
+    url: https://www.npmjs.com/package/node-red-contrib-zigsim
+    source: https://github.com/kazuhitoyokoi/node-red-contrib-zigsim
+    install: npm install node-red-contrib-zigsim
+    official: false
+    version: 0.0.2
+    published: '2022-10-04'
+    note: >-
+      Community Node-RED node (npm maintainer `kazuhitoyokoi`, not 1→10) for
+      receiving ZIG SIM messages. Not a vendor SDK.
+app_distribution:
+  - name: ZIG SIM
+    store: Apple App Store
+    url: https://apps.apple.com/jp/app/zig-sim/id1112909974
+    bundle_id: com.1-10.drive.ZIG-SIM
+    seller: 1-10, INC.
+    version: 1.5.1
+    published: '2026-06-19'
+    price: free
+  - name: ZIG SIM PRO
+    store: Apple App Store
+    url: https://apps.apple.com/jp/app/zig-sim-pro/id1481556614
+    bundle_id: com.1-10.ZIG-SIM-PRO
+    seller: 1-10, INC.
+    version: 1.5.1
+    published: '2026-06-19'
+    price: JPY 600
+  - name: ZIG SIM (Android)
+    store: Google Play
+    url: null
+    note: >-
+      The ZIG SIM documentation states the free version is available for iOS and
+      Android (https://1-10.github.io/ZIGSIM_docs/getting-started.html). A Google
+      Play listing titled "ZIG SIM" appears in Play search results, but the store
+      page could not be resolved to a package id from an unauthenticated probe on
+      2026-09-05, so no URL is recorded rather than a guessed one.

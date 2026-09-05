@@ -1,0 +1,29 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  Searched 2026-09-05 for an official hosted or local MCP server from 1→10, Inc.:
+  the company site https://www.1-10.com/ and its /business/ pages, the ZIG SIM
+  documentation https://1-10.github.io/ZIGSIM_docs/, the ZIG SIM product site
+  https://zig-project.com/, all 16 public repositories of the GitHub organisation
+  https://github.com/1-10, and the npm registry. /.well-known/ai-plugin.json
+  returned 404 on all five company hosts (well-known/110-well-known.yml).
+description: >-
+  No MCP server exists, hosted or local, and none was derived. A candidate tool
+  list cannot be derived either: the pipeline derives candidates from OpenAPI
+  operations, and 1→10 publishes no OpenAPI or any other HTTP contract. This file
+  records that measured absence. No MCPServer pointer is wired into apis.yml —
+  writing one would assert an agent surface the company does not serve.
+status: none
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: none
+  verified: searched
+tools: []
+note: >-
+  The company's one agent-facing artifact is not an MCP server but a published
+  Agent Skill — https://github.com/1-10/public-skills, saved verbatim to skills/
+  in this repo and wired as type AgentSkill. It is a local, repository-analysis
+  skill, so it neither needs nor implies an MCP endpoint.

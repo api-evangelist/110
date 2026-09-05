@@ -1,0 +1,32 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  https://1-10.github.io/ZIGSIM_docs/ (Getting Started, Tutorial, and the NDI and
+  general-settings notes on the feature pages), probed 2026-09-05. No other 1→10
+  surface documents limits of any kind.
+description: >-
+  1→10 publishes no rate limits, because it publishes no hosted API to limit.
+  ZIG SIM's throughput is set by the SENDER — the message rate chosen in the
+  app's general settings — and the receiver has no way to push back. There are no
+  HTTP rate-limit headers, no 429, and no Retry-After, because there is no HTTP
+  request/response cycle at all.
+limit_count: 0
+headers: {}
+response_codes: {}
+limits: []
+throughput_control:
+  mechanism: message rate (app general settings)
+  controlled_by: sender (the device operator)
+  backpressure: none
+  description: >-
+    The publication frequency is a setting on the phone. The NDI feature's
+    framerate "follows the message rate in general settings"
+    (https://1-10.github.io/ZIGSIM_docs/features/ndi.html). A receiver that
+    cannot keep up has no signalling channel — over UDP it simply loses
+    datagrams, and nothing tells the sender or the developer that it happened.
+  docs: https://1-10.github.io/ZIGSIM_docs/features/ndi.html
+note: >-
+  limit_count 0 here is a measured zero, not an unchecked field: the full
+  documentation set was read and contains no quota, no throttle and no
+  exhaustion behaviour. For a LAN-local publisher this is defensible; it is
+  recorded so the absence is legible rather than assumed.

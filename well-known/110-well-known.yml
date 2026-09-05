@@ -1,0 +1,96 @@
+generated: '2026-09-05'
+method: probed
+source: >-
+  Direct HTTPS probes run 2026-09-05 with a browser User-Agent, following
+  redirects, against every host this record knows: the registrable domain
+  1-10.com and its www host, the labs/blog host labs.1-10.com, and the GitHub
+  Pages host 1-10.github.io that serves the ZIG SIM documentation. 1→10 publishes
+  no API baseURL and no OpenAPI, so there are no additional servers[] hosts to
+  probe.
+description: >-
+  Every /.well-known/ path returned 404. On www.1-10.com and 1-10.com the 404 is a
+  real WordPress 404 page (7,177 bytes of the site's Japanese error template), and
+  on 1-10.github.io it is the GitHub Pages "Site not found" page — no path
+  returned a document of any kind. No WellKnown or SecurityTxt pointer is wired
+  into apis.yml as a result: this file records a measured absence, not a surface.
+hosts:
+  - host: https://www.1-10.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://1-10.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://labs.1-10.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://zig-project.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://1-10.github.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
