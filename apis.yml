@@ -1,5 +1,5 @@
 aid: '110'
-name: 1→10, Inc.
+name: 1→10
 description: >-
   1→10, Inc. (株式会社ワントゥーテン, "One to Ten") is a Kyoto-headquartered creative
   technology company that designs and builds spatial experiences — projection
@@ -13,6 +13,21 @@ description: >-
   developer-facing product is ZIG SIM, a smartphone sensor-streaming app used for
   physical prototyping, and it publishes an Agent Skill for public use.
 url: https://raw.githubusercontent.com/api-evangelist/110/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  license_evidence:
+    not_product:
+    - 1-10/zigsimplus_ios_public
+  open_source: unknown
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: low
+  source:
+  - pricing
+  - repository-not-product
+  generated: '2026-09-25'
+  method: derived
 image: https://www.1-10.com/assets/img/common/ogp.png
 x-type: company
 x-source: harvest:secondary-market
@@ -117,3 +132,4 @@ x-coverage:
     - url: https://www.1-10.com/.well-known/api-catalog
       status: 404
   checked: '2026-09-05'
+x-legal-name: 1→10, Inc.
