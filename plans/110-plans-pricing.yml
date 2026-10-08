@@ -64,3 +64,25 @@ services_pricing:
     https://www.1-10.com/contact/. Recorded as an honest absence — this is a
     project-based creative studio, and contact-us pricing is the norm for the
     category, not an omission.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - subscription
+  units: []
+  plans:
+  - name: ZIG SIM
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods:
+    - one-time
+  - name: ZIG SIM PRO
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - one-time
