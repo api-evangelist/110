@@ -1,4 +1,4 @@
-# 1→10, Inc. (株式会社ワントゥーテン)
+# 1→10
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,34 +64,103 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-## About the company
+1→10, Inc. (株式会社ワントゥーテン, "One to Ten") is a Kyoto-headquartered creative technology company that designs and builds spatial experiences — projection mapping and large-scale interactive land art, XR installations, AI concierge and robotics work, IoT product prototyping and brand content — for commercial facilities, cultural sites and events. Founded October 1997, with offices in Kyoto and Tokyo and a Singapore holding company, it positions itself as a "Spatial DX" studio and is known for permanent installations such as Magical Shores at Siloso Beach in Singapore and the Nijo Castle YAKAI night event in Kyoto. It is a project-based studio rather than an API platform: its one developer-facing product is ZIG SIM, a smartphone sensor-streaming app used for physical prototyping, and it publishes an Agent Skill for public use.
 
-1→10, Inc. is a Kyoto-headquartered creative technology studio — projection mapping and
-large-scale interactive land art, XR installations, AI concierge and robotics work, IoT product
-prototyping and brand content — founded October 1997, with a Tokyo office and a Singapore holding
-company. It describes itself as a "Spatial DX" company.
+**Areas:** Creative Technology · Experience Design · Extended Reality · Artificial Intelligence · Projection Mapping · Sensors · Prototyping · Japan · Entertainment · Company
 
-- Website: https://www.1-10.com/ (English: https://www.1-10.com/en/)
-- Engineering blog: https://labs.1-10.com/
-- GitHub organisation: https://github.com/1-10
+## 1→10 on APIs.io
 
-**This company publishes no HTTP API.** No OpenAPI, Swagger, GraphQL schema, AsyncAPI, gRPC or
-WSDL contract exists on any host it controls, there is no developer portal, and every
-`/.well-known/` path returned 404 on all five of its hosts (see `well-known/110-well-known.yml`).
-That is a finding, not a gap in this profile: it is a project-based creative studio, and its work
-is commissioned through https://www.1-10.com/contact/.
+Everything profiled for 1→10 is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/110/](https://apis.io/providers/110/)** — or go straight to one of the APIs or properties below.
 
-What it does publish, and what this profile captures:
+### Published properties
 
-- **ZIG SIM / ZIG SIM Pro** — a smartphone sensor-streaming app for physical prototyping, with a
-  fully documented message interface (OSC or JSON over UDP or TCP, addressed per device as
-  `/(deviceUUID)/<command>`). Docs: https://1-10.github.io/ZIGSIM_docs/ · Product:
-  https://zig-project.com/ · Source: https://github.com/1-10/ZIGSIMPlus_iOS_Public
-- **A published Agent Skill** — `codebase-guide`, MIT, from https://github.com/1-10/public-skills,
-  saved verbatim under `skills/`. This is the company's only agent-facing artifact.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The repository was originally created from the API Evangelist harvest backlog (source:
-secondary-market), where the company appeared under the mangled name `110`, taken from the
-EquityZen listing https://equityzen.com/company/110 — the venue page for "1 → 10" stock. The
-identity, website and artifacts here were established from the company's own surface on
-2026-09-05.
+#### Agent skills (1)
+
+Agent skills built on the API.
+
+- [codebase-guide](https://apis.io/agent-skills/110/codebase-guide/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [110 Domain Security](https://apis.io/security/110/110-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [110 Plans Pricing](https://apis.io/plans/110/110-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [110 Rate Limits](https://apis.io/rate-limits/110/110-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.1-10.com/)
+- [Documentation](https://1-10.github.io/ZIGSIM_docs/)
+- [Getting started](https://1-10.github.io/ZIGSIM_docs/getting-started.html)
+- [Blog](https://labs.1-10.com/)
+- [Terms of service](https://1-10.github.io/ZIGSIM_docs/legal/terms-of-use.html)
+- [Privacy policy](https://www.1-10.com/privacypolicy/)
+- [GitHub](https://github.com/1-10)
+
+## API Evangelist rating
+
+**Kin Score 23.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 49.1 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 42.1 |
+
+**Agent readiness 6.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 17.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/110/](https://apis.io/providers/110/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for 1→10: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/110/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
